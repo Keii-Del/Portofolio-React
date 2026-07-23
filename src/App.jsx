@@ -2,6 +2,7 @@ import { useState } from "react";
 import reactLogo from "./assets/react.svg";
 import viteLogo from "./assets/vite.svg";
 import heroImg from "./assets/hero.png";
+import guwaImg from "./assets/guwa.jpg";
 import "./App.css";
 
 function App() {
@@ -78,7 +79,7 @@ function App() {
           </div>
           <div className="flex justify-center">
             <img
-              src="https://picsum.photos/400"
+              src={guwaImg}
               className="w-72 h-72 rounded-full border-4 border-purple-500 object-cover"
             />
           </div>
