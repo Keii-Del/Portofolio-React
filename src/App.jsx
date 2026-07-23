@@ -4,7 +4,6 @@ import viteLogo from "./assets/vite.svg";
 import heroImg from "./assets/hero.png";
 import guwaImg from "./assets/guwa.jpg";
 import "./App.css";
-import { Analytics } from "@vercel/analytics/next"
 
 function App() {
   const [formData, setFormData] = useState({
@@ -32,16 +31,21 @@ function App() {
         <header className="flex max-w-6xl mx-auto px-6 py-4 justify-between items-center text-white">
           <p className="text-2xl text-purple-500">Pandu</p>
           <div className="hidden md:flex gap-8 text-sm">
-            <a href="" className="hover:text-purple-500">
+            <a href="#about" className="hover:text-purple-500">
               About
             </a>
-            <a href="" className="hover:text-purple-500">
+            <a href="#skills" className="hover:text-purple-500">
               Skills
             </a>
-            <a href="" className="hover:text-purple-500">
+            <a href="#education" className="hover:text-purple-500">
               Education
             </a>
-            <a href="" className="hover:text-purple-500">
+            <a
+              href="https://mail.google.com/mail/?view=cm&fs=1&to=gudgame.314@gmail.com&su=Halo%20Pandu&body=Saya%20ingin%20menghubungi%20Anda%20mengenai..."
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-purple-500"
+            >
               Contact
             </a>
           </div>
@@ -65,13 +69,13 @@ function App() {
 
             <div className="flex gap-4">
               <a
-                href="#"
+                href="#contact"
                 className="border border-purple-500 bg-purple-500 px-6 py-3 rounded-xl hover:scale-105"
               >
                 Hubungi Saya
               </a>
               <a
-                href="#"
+                href="#skills"
                 className="border px-6 py-3 rounded-xl border-white/20"
               >
                 Lihat Skill
@@ -87,7 +91,7 @@ function App() {
         </div>
       </section>
 
-      <section className="py-24 px-6">
+      <section id="about" className="py-24 px-6">
         <div className="max-w-5xl mx-auto">
           <h2 className=" text-4xl text-center mb-12">Tentang Saya</h2>
           <div className="bg-slate-900 border-white/10 border p-10 rounded-xl">
@@ -100,7 +104,7 @@ function App() {
         </div>
       </section>
 
-      <section id="Skills" className="py-24 px-6 bg-slate-900/40">
+      <section id="skills" className="py-24 px-6 bg-slate-900/40">
         <div className="max-w-5xl mx-auto">
           <h2 className="text-center text-4xl font-semibold mb-16">Skills</h2>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
@@ -120,7 +124,7 @@ function App() {
         </div>
       </section>
 
-      <section className="py-24 px-6">
+      <section id="education" className="py-24 px-6">
         <div className="max-w-5xl mx-auto">
           <h2 className="text-center text-4xl font-semibold mb-16">
             Timeline Pendidikan
@@ -141,7 +145,7 @@ function App() {
         </div>
       </section>
 
-      <section className="py-24 px-6">
+      <section id="contact" className="py-24 px-6">
         <div className="max-w-5xl mx-auto">
           <h2 className="font-semibold text-4xl text-center mb-16">
             Hubungi Saya
