@@ -4,6 +4,7 @@ import viteLogo from "./assets/vite.svg";
 import heroImg from "./assets/hero.png";
 import guwaImg from "./assets/guwa.jpg";
 import "./App.css";
+import { Analytics } from "@vercel/analytics/next"
 
 function App() {
   const [formData, setFormData] = useState({
