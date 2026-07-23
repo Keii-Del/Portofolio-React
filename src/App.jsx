@@ -4,7 +4,7 @@ import viteLogo from "./assets/vite.svg";
 import heroImg from "./assets/hero.png";
 import guwaImg from "./assets/guwa.jpg";
 import "./App.css";
-import { Analytics } from "@vercel/analytics/next"
+import { Analytics } from "@vercel/analytics/react"
 
 function App() {
   const [formData, setFormData] = useState({
@@ -190,6 +190,7 @@ function App() {
           2026 Pandu Portofolio
         </footer>
       </section>
+      <Analytics />
     </div>
   );
 }
