@@ -26,23 +26,25 @@ function App() {
 
   return (
     <div className="min-h-screen bg-slate-950 text-white">
-      <header className="flex max-w-6xl mx-auto px-6 py-4 justify-between items-center text-white">
-        <p className="text-2xl text-purple-500">Pandu</p>
-        <div className="hidden md:flex gap-8 text-sm">
-          <a href="" className="hover:text-purple-500">
-            About
-          </a>
-          <a href="" className="hover:text-purple-500">
-            Skills
-          </a>
-          <a href="" className="hover:text-purple-500">
-            Education
-          </a>
-          <a href="" className="hover:text-purple-500">
-            Contact
-          </a>
-        </div>
-      </header>
+      <div className="border-b border-white/10 fixed top-0 left-0 w-full z-50 backdrop-blur-lg bg-slate-950/70">
+        <header className="flex max-w-6xl mx-auto px-6 py-4 justify-between items-center text-white">
+          <p className="text-2xl text-purple-500">Pandu</p>
+          <div className="hidden md:flex gap-8 text-sm">
+            <a href="" className="hover:text-purple-500">
+              About
+            </a>
+            <a href="" className="hover:text-purple-500">
+              Skills
+            </a>
+            <a href="" className="hover:text-purple-500">
+              Education
+            </a>
+            <a href="" className="hover:text-purple-500">
+              Contact
+            </a>
+          </div>
+        </header>
+      </div>
       <section className="min-h-screen flex items-center px-6">
         <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-10 items-center">
           <div>
