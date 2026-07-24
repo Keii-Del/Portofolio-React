@@ -1,7 +1,4 @@
 import { useState, useRef } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "./assets/vite.svg";
-import heroImg from "./assets/hero.png";
 import guwaImg from "./assets/guwa.jpg";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -9,6 +6,72 @@ import { useGSAP } from "@gsap/react";
 import "./App.css";
 
 gsap.registerPlugin(useGSAP, ScrollTrigger);
+
+function About() {
+  return (
+    <section id="about" className="py-24 px-6">
+      <div className="max-w-5xl mx-auto">
+        <h2 className=" text-4xl text-center mb-12">Tentang Saya</h2>
+        <div className="scroll-fade bg-slate-900 border-white/10 border p-10 rounded-xl">
+          <p className="text-center leading-relaxed">
+            Saya adalah mahasiswa Teknik Informatika Universitas Muhammadiyah
+            Surakarta yang minat dalam pengembangan website, database, UI/UX,
+            dan teknologi digital.
+          </p>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function Skills() {
+  return (
+    <section id="skills" className="py-24 px-6 bg-slate-900/40">
+      <div className="max-w-5xl mx-auto">
+        <h2 className="text-center text-4xl font-semibold mb-16">Skills</h2>
+        <div className="scroll-fade grid grid-cols-2 md:grid-cols-4 gap-6">
+          <div className="bg-slate-900 border border-white/20 text-center rounded-2xl p-8 hover:bg-slate-800 hover:scale-105 transition">
+            HTML
+          </div>
+          <div className="bg-slate-900 border border-white/20 text-center rounded-2xl p-8 hover:bg-slate-800 hover:scale-105 transition">
+            CSS
+          </div>
+          <div className="bg-slate-900 border border-white/20 text-center rounded-2xl p-8 hover:bg-slate-800 hover:scale-105 transition">
+            MYSQL
+          </div>
+          <div className="bg-slate-900 border border-white/20 text-center rounded-2xl p-8 hover:bg-slate-800 hover:scale-105 transition">
+            JavaScript
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function Education() {
+  return (
+    <section id="education" className="py-24 px-6">
+      <div className="max-w-5xl mx-auto">
+        <h2 className="text-center text-4xl font-semibold mb-16">
+          Timeline Pendidikan
+        </h2>
+        <div className="border-l-2 border-purple-500 pl-10">
+          <div className="scroll-fade mb-12">
+            <h3 className="text-xl font-bold">
+              Universitas Muhammadiyah Surakarta
+            </h3>
+            <p className="text-purple-400">Teknik Informatika</p>
+            <p className="text-slate-400">2025-2029</p>
+          </div>
+          <div className="scroll-fade">
+            <h3 className="text-xl font-bold">SMA Negeri 2 Wonosari</h3>
+            <p className="text-slate-400">2024-2025</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
 
 function App() {
   const container = useRef();
@@ -129,59 +192,11 @@ function App() {
         </div>
       </section>
 
-      <section id="about" className="py-24 px-6">
-        <div className="max-w-5xl mx-auto">
-          <h2 className=" text-4xl text-center mb-12">Tentang Saya</h2>
-          <div className="scroll-fade bg-slate-900 border-white/10 border p-10 rounded-xl">
-            <p className="text-center leading-relaxed">
-              Saya adalah mahasiswa Teknik Informatika Universitas Muhammadiyah
-              Surakarta yang minat dalam pengembangan website, database, UI/UX,
-              dan teknologi digital.
-            </p>
-          </div>
-        </div>
-      </section>
+      <About />
 
-      <section id="skills" className="py-24 px-6 bg-slate-900/40">
-        <div className="max-w-5xl mx-auto">
-          <h2 className="text-center text-4xl font-semibold mb-16">Skills</h2>
-          <div className="scroll-fade grid grid-cols-2 md:grid-cols-4 gap-6">
-            <div className="bg-slate-900 border border-white/20 text-center rounded-2xl p-8 hover:bg-slate-800 hover:scale-105 transition">
-              HTML
-            </div>
-            <div className="bg-slate-900 border border-white/20 text-center rounded-2xl p-8 hover:bg-slate-800 hover:scale-105 transition">
-              CSS
-            </div>
-            <div className="bg-slate-900 border border-white/20 text-center rounded-2xl p-8 hover:bg-slate-800 hover:scale-105 transition">
-              MYSQL
-            </div>
-            <div className="bg-slate-900 border border-white/20 text-center rounded-2xl p-8 hover:bg-slate-800 hover:scale-105 transition">
-              JavaScript
-            </div>
-          </div>
-        </div>
-      </section>
+      <Skills />
 
-      <section id="education" className="py-24 px-6">
-        <div className="max-w-5xl mx-auto">
-          <h2 className="text-center text-4xl font-semibold mb-16">
-            Timeline Pendidikan
-          </h2>
-          <div className="border-l-2 border-purple-500 pl-10">
-            <div className="scroll-fade mb-12">
-              <h3 className="text-xl font-bold">
-                Universitas Muhammadiyah Surakarta
-              </h3>
-              <p className="text-purple-400">Teknik Informatika</p>
-              <p className="text-slate-400">2025-2029</p>
-            </div>
-            <div className="scroll-fade">
-              <h3 className="text-xl font-bold">SMA Negeri 2 Wonosari</h3>
-              <p className="text-slate-400">2024-2025</p>
-            </div>
-          </div>
-        </div>
-      </section>
+      <Education />
 
       <section id="contact" className="py-24 px-6">
         <div className="max-w-5xl mx-auto">
