@@ -186,7 +186,7 @@ function App() {
           <div className="flex justify-center">
             <img
               src={guwaImg}
-              className="hero-img w-72 h-72 rounded-full border-4 border-purple-500 object-cover"
+              className="hero-img w-95 h-95 rounded-full border-4 border-purple-500 object-cover"
             />
           </div>
         </div>
