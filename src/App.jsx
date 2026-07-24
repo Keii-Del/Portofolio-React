@@ -7,6 +7,16 @@ import "./App.css";
 
 gsap.registerPlugin(useGSAP, ScrollTrigger);
 
+function Puter() {
+  return (
+    <section id="#footer" className="bg-slate-900/30">
+        <footer className="border-t border-white/20 py-8 text-center text-slate-500">
+          2026 Pandu Portofolio
+        </footer>
+      </section>
+  )
+}
+
 function About() {
   return (
     <section id="about" className="py-24 px-6 font-montserrat">
@@ -191,13 +201,9 @@ function App() {
           </div>
         </div>
       </section>
-
       <About />
-
       <Skills />
-
       <Education />
-
       <section id="contact" className="py-24 px-6 font-josefin">
         <div className="max-w-5xl mx-auto">
           <h2 className="font-semibold text-4xl text-center mb-16">
@@ -241,12 +247,7 @@ function App() {
           </form>
         </div>
       </section>
-
-      <section className="bg-slate-900/30">
-        <footer className="border-t border-white/20 py-8 text-center text-slate-500">
-          2026 Pandu Portofolio
-        </footer>
-      </section>
+      <Puter/>
     </div>
   );
 }
