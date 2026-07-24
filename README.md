@@ -24,4 +24,4 @@ Personal portfolio site built with React and Tailwind CSS. Shows my projects, sk
 
 - GitHub: [@Keii-Del](https://github.com/Keii-Del)
 - Email: gudgame.314@gmail.com
-- Insta : (https://instagram.com/panntastic)
+- Insta : [@panntastic](https://instagram.com/panntastic)
