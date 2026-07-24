@@ -9,7 +9,7 @@ gsap.registerPlugin(useGSAP, ScrollTrigger);
 
 function About() {
   return (
-    <section id="about" className="py-24 px-6">
+    <section id="about" className="py-24 px-6 font-montserrat">
       <div className="max-w-5xl mx-auto">
         <h2 className=" text-4xl text-center mb-12">Tentang Saya</h2>
         <div className="scroll-fade bg-slate-900 border-white/10 border p-10 rounded-xl">
@@ -26,7 +26,7 @@ function About() {
 
 function Skills() {
   return (
-    <section id="skills" className="py-24 px-6 bg-slate-900/40">
+    <section id="skills" className="py-24 px-6 bg-slate-900/40 font-josefin">
       <div className="max-w-5xl mx-auto">
         <h2 className="text-center text-4xl font-semibold mb-16">Skills</h2>
         <div className="scroll-fade grid grid-cols-2 md:grid-cols-4 gap-6">
@@ -50,7 +50,7 @@ function Skills() {
 
 function Education() {
   return (
-    <section id="education" className="py-24 px-6">
+    <section id="education" className="py-24 px-6 font-montserrat">
       <div className="max-w-5xl mx-auto">
         <h2 className="text-center text-4xl font-semibold mb-16">
           Timeline Pendidikan
@@ -129,34 +129,34 @@ function App() {
   return (
     <div ref={container} className="min-h-screen bg-slate-950 text-white">
       <div className="border-b border-white/10 fixed top-0 left-0 w-full z-50 backdrop-blur-lg bg-slate-950/70">
-        <header className="flex max-w-6xl mx-auto px-6 py-4 justify-between items-center text-white">
-          <p className="text-2xl text-purple-500">Pandu</p>
+        <header className="flex max-w-6xl mx-auto px-6 py-4 justify-between items-center text-white font-syne ">
+          <p className="text-2xl text-purple-500 font-bold">Pandu</p>
           <div className="hidden md:flex gap-8 text-sm">
-            <a href="#about" className="hover:text-purple-500">
+            <a href="#about" className="hover:text-purple-500 transition">
               About
             </a>
-            <a href="#skills" className="hover:text-purple-500">
+            <a href="#skills" className="hover:text-purple-500 transition">
               Skills
             </a>
-            <a href="#education" className="hover:text-purple-500">
+            <a href="#education" className="hover:text-purple-500 transition">
               Education
             </a>
             <a
               href="https://mail.google.com/mail/?view=cm&fs=1&to=gudgame.314@gmail.com&su=Halo%20Pandu&body=Saya%20ingin%20menghubungi%20Anda%20mengenai..."
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:text-purple-500"
+              className="hover:text-purple-500 transition"
             >
               Contact
             </a>
           </div>
         </header>
       </div>
-      <section className="min-h-screen flex items-center px-6">
+      <section className="min-h-screen flex items-center px-6 font-syne">
         <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-10 items-center">
           <div>
             <div className="hero-badge inline-flex items-center px-6 py-2 rounded-full bg-purple-500/20 border border-purple-500">
-              Open To Work
+              Open To Work <div className="ml-2 h-2 w-2 rounded-full bg-purple-600 animate-pulse inline-block" />
             </div>
 
             <h1 className="hero-title text-5xl md:text-7xl mt-6 mb-6">
@@ -171,7 +171,7 @@ function App() {
             <div className="hero-buttons flex gap-4">
               <a
                 href="#contact"
-                className="border border-purple-500 bg-purple-500 px-6 py-3 rounded-xl hover:scale-105"
+                className="border border-purple-500 bg-purple-500 px-6 py-3 rounded-xl hover:scale-105 transition"
               >
                 Hubungi Saya
               </a>
@@ -198,7 +198,7 @@ function App() {
 
       <Education />
 
-      <section id="contact" className="py-24 px-6">
+      <section id="contact" className="py-24 px-6 font-josefin">
         <div className="max-w-5xl mx-auto">
           <h2 className="font-semibold text-4xl text-center mb-16">
             Hubungi Saya
