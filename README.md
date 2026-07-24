@@ -15,7 +15,6 @@ Personal portfolio site built with React and Tailwind CSS. Shows my projects, sk
 
 ## Features
 
-- Responsive layout for mobile, tablet, and desktop
 - Project showcase section
 - About / skills section
 - Contact section
@@ -24,4 +23,4 @@ Personal portfolio site built with React and Tailwind CSS. Shows my projects, sk
 
 - GitHub: [@Keii-Del](https://github.com/Keii-Del)
 - Email: gudgame.314@gmail.com
-- Insta : [@panntastic](https://instagram.com/panntastic)
+- Insta : [@pannntastic](https://instagram.com/pannntastic)
