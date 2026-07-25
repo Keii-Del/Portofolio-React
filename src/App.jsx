@@ -7,7 +7,7 @@ import "./App.css";
 
 gsap.registerPlugin(useGSAP, ScrollTrigger);
 
-function Puter() {
+function Bawahan() {
   return (
     <section id="#footer" className="bg-slate-900/30">
         <footer className="border-t border-white/20 py-8 text-center text-slate-500">
@@ -247,7 +247,7 @@ function App() {
           </form>
         </div>
       </section>
-      <Puter/>
+      <Bawahan />
     </div>
   );
 }
