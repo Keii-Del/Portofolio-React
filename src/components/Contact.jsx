@@ -13,7 +13,7 @@ export default function Contact() {
   });
 
   const [submitted, setSubmitted] = useState(null);
-  const currentYear = new Date().getFullYear();
+
   const handleChange = (e) => {
     const { id, value } = e.target;
     setFormData((prev) => ({ ...prev, [id]: value }));
@@ -21,6 +21,13 @@ export default function Contact() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    const form = e.target;
+    const setFormData = new FormData(form);
+
+    const name = setFormData.get("name");
+    const email = setFormData.get("email");
+    const message = setFormData.get('message');
 
     const messageLenght = formData.message.length;
     const isLongMessage = messageLenght > 100;
@@ -39,27 +46,23 @@ export default function Contact() {
           <input
             id="nama"
             placeholder="Nama"
-            value={formData.nama}
-            onChange={handleChange}
+            name="name"
             className="w-full bg-slate-900 border border-white/10 p-4 rounded-xl"
           />
           <input
             id="email"
             placeholder="Email"
-            value={formData.email}
-            onChange={handleChange}
+            name="email"
             className="w-full bg-slate-900 border border-white/10 p-4 rounded-xl"
           />
           <textarea
             id="message"
             placeholder="Pesan"
-            value={formData.message}
-            onChange={handleChange}
+            name="message"
             maxLength={MAX_MESSAGE_LENGTH}
             className="w-full bg-slate-900 border border-white/10 p-4 rounded-xl"
           />
           <button
-            id="submit"
             type="submit"
             className="bg-purple-500 border-purple-500 rounded-xl py-4 w-full hover:bg-purple-400 hover:scale-102 transition"
           >
