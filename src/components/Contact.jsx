@@ -6,18 +6,8 @@ const IS_FORM_ACTIVE = true;
 const EMPTY_STATE = null;
 
 export default function Contact() {
-  // const [formData, setFormData] = useState({
-  //   nama: "",
-  //   email: "",
-  //   message: "",
-  // });
 
   const [submitted, setSubmitted] = useState(null);
-
-  // const handleChange = (e) => {
-  //   const { id, value } = e.target;
-  //   setFormData((prev) => ({ ...prev, [id]: value }));
-  // };
 
   const handleSubmit = (e) => {
     e.preventDefault();
