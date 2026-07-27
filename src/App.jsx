@@ -4,6 +4,7 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 import "./App.css";
+import Contact from "./components/Contact";
 
 gsap.registerPlugin(useGSAP, ScrollTrigger);
 
@@ -85,13 +86,8 @@ function Education() {
 
 function App() {
   const container = useRef();
-  const [formData, setFormData] = useState({
-    nama: "",
-    email: "",
-    message: "",
-  });
 
-  const [submitted, setSubmitted] = useState(null);
+  
   useGSAP(
     () => {
       const tl = gsap.timeline({
@@ -124,17 +120,6 @@ function App() {
     },
     { scope: container },
   );
-
-  const handleChange = (e) => {
-    const { id, value } = e.target;
-    setFormData((prev) => ({ ...prev, [id]: value }));
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log("Data terkirim: ", formData);
-    setSubmitted(formData);
-  };
 
   return (
     <div ref={container} className="min-h-screen bg-slate-950 text-white">
@@ -204,49 +189,7 @@ function App() {
       <About />
       <Skills />
       <Education />
-      <section id="contact" className="py-24 px-6 font-josefin">
-        <div className="max-w-5xl mx-auto">
-          <h2 className="font-semibold text-4xl text-center mb-16">
-            Hubungi Saya
-          </h2>
-          <form className="scroll-fade space-y-5" onSubmit={handleSubmit}>
-            <input
-              id="nama"
-              placeholder="Nama"
-              value={formData.nama}
-              onChange={handleChange}
-              className="w-full bg-slate-900 border border-white/10 p-4 rounded-xl"
-            />
-            <input
-              id="email"
-              placeholder="Email"
-              value={formData.email}
-              onChange={handleChange}
-              className="w-full bg-slate-900 border border-white/10 p-4 rounded-xl"
-            />
-            <textarea
-              id="message"
-              placeholder="Pesan"
-              value={formData.message}
-              onChange={handleChange}
-              className="w-full bg-slate-900 border border-white/10 p-4 rounded-xl"
-            />
-            <button
-              id="submit"
-              type="submit"
-              className="bg-purple-500 border-purple-500 rounded-xl py-4 w-full hover:bg-purple-400 hover:scale-102 transition"
-            >
-              Kirim Pesan
-            </button>
-
-            {submitted && (
-              <div className="text-center text-purple-400 mt-2">
-                Pesan Terkirim
-              </div>
-            )}
-          </form>
-        </div>
-      </section>
+      <Contact/>
       <Bawahan />
     </div>
   );
