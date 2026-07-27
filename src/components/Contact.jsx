@@ -6,34 +6,32 @@ const IS_FORM_ACTIVE = true;
 const EMPTY_STATE = null;
 
 export default function Contact() {
-  const [formData, setFormData] = useState({
-    nama: "",
-    email: "",
-    message: "",
-  });
+  // const [formData, setFormData] = useState({
+  //   nama: "",
+  //   email: "",
+  //   message: "",
+  // });
 
   const [submitted, setSubmitted] = useState(null);
 
-  const handleChange = (e) => {
-    const { id, value } = e.target;
-    setFormData((prev) => ({ ...prev, [id]: value }));
-  };
+  // const handleChange = (e) => {
+  //   const { id, value } = e.target;
+  //   setFormData((prev) => ({ ...prev, [id]: value }));
+  // };
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
     const form = e.target;
-    const setFormData = new FormData(form);
+    const formData = new FormData(form);
 
-    const name = setFormData.get("name");
-    const email = setFormData.get("email");
-    const message = setFormData.get('message');
+    const formJson = Object.fromEntries(formData.entries());
 
-    const messageLenght = formData.message.length;
+    const messageLenght = formJson.message.length;
     const isLongMessage = messageLenght > 100;
     console.log("Pesan Panjang? (boolean): ", isLongMessage);
 
-    setSubmitted({ ...formData, sentAt: new Date().toLocaleString() });
+    setSubmitted({ ...formJson, sentAt: new Date().toLocaleString() });
   };
 
   return (
@@ -44,19 +42,16 @@ export default function Contact() {
         </h2>
         <form className="scroll-fade space-y-5 max-w-lg mx-auto" onSubmit={handleSubmit}>
           <input
-            id="nama"
             placeholder="Nama"
-            name="name"
+            name="nama"
             className="w-full bg-slate-900 border border-white/10 p-4 rounded-xl"
           />
           <input
-            id="email"
             placeholder="Email"
             name="email"
             className="w-full bg-slate-900 border border-white/10 p-4 rounded-xl"
           />
           <textarea
-            id="message"
             placeholder="Pesan"
             name="message"
             maxLength={MAX_MESSAGE_LENGTH}
