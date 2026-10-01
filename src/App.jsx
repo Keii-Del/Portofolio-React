@@ -3,118 +3,69 @@ import guwaImg from "./assets/guwa.jpg";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
-import "./App.css";
 import Contact from "./components/Contact";
+import About from "./components/About";
+import Bawahan from "./components/Bawahan";
+import Skills from "./components/Skills";
+import Education from "./components/Education";
+import Projects from "./components/Projects";
 
 gsap.registerPlugin(useGSAP, ScrollTrigger);
-
-function Bawahan() {
-  return (
-    <section id="#footer" className="bg-slate-900/30">
-        <footer className="border-t border-white/20 py-8 text-center text-slate-500">
-          2026 Pandu Portofolio
-        </footer>
-      </section>
-  )
-}
-
-function About() {
-  return (
-    <section id="about" className="py-24 px-6 font-montserrat">
-      <div className="max-w-5xl mx-auto">
-        <h2 className=" text-4xl text-center mb-12">Tentang Saya</h2>
-        <div className="scroll-fade bg-slate-900 border-white/10 border p-10 rounded-xl">
-          <p className="text-center leading-relaxed">
-            Saya adalah mahasiswa Teknik Informatika Universitas Muhammadiyah
-            Surakarta yang minat dalam pengembangan website, database, UI/UX,
-            dan teknologi digital.
-          </p>
-        </div>
-      </div>
-    </section>
-  );
-}
-
-function Skills() {
-  return (
-    <section id="skills" className="py-24 px-6 bg-slate-900/40 font-josefin">
-      <div className="max-w-5xl mx-auto">
-        <h2 className="text-center text-4xl font-semibold mb-16">Skills</h2>
-        <div className="scroll-fade grid grid-cols-2 md:grid-cols-4 gap-6">
-          <div className="bg-slate-900 border border-white/20 text-center rounded-2xl p-8 hover:bg-slate-800 hover:scale-105 transition">
-            HTML
-          </div>
-          <div className="bg-slate-900 border border-white/20 text-center rounded-2xl p-8 hover:bg-slate-800 hover:scale-105 transition">
-            CSS
-          </div>
-          <div className="bg-slate-900 border border-white/20 text-center rounded-2xl p-8 hover:bg-slate-800 hover:scale-105 transition">
-            MYSQL
-          </div>
-          <div className="bg-slate-900 border border-white/20 text-center rounded-2xl p-8 hover:bg-slate-800 hover:scale-105 transition">
-            JavaScript
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-}
-
-function Education() {
-  return (
-    <section id="education" className="py-24 px-6 font-montserrat">
-      <div className="max-w-5xl mx-auto">
-        <h2 className="text-center text-4xl font-semibold mb-16">
-          Timeline Pendidikan
-        </h2>
-        <div className="border-l-2 border-purple-500 pl-10">
-          <div className="scroll-fade mb-12">
-            <h3 className="text-xl font-bold">
-              Universitas Muhammadiyah Surakarta
-            </h3>
-            <p className="text-purple-400">Teknik Informatika</p>
-            <p className="text-slate-400">2025-2029</p>
-          </div>
-          <div className="scroll-fade">
-            <h3 className="text-xl font-bold">SMA Negeri 2 Wonosari</h3>
-            <p className="text-slate-400">2024-2025</p>
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-}
 
 function App() {
   const container = useRef();
 
-  
   useGSAP(
     () => {
-      const tl = gsap.timeline({
-        defaults: { ease: "power3.out", duration: 1 },
-      });
+      const mm = gsap.matchMedia();
 
-      tl.from(".hero-badge", { y: -20, opacity: 0 })
-        .from(".hero-title", { y: 40, opacity: 0 }, "-=0.4")
-        .from(".hero-desc", { y: 30, opacity: 0 }, "-=0.6")
-        .from(".hero-buttons", { y: 20, opacity: 0 }, "-=0.6")
-        .from(
-          ".hero-img",
-          { scale: 0.7, opacity: 0, rotate: -10, duration: 1.2 },
-          "-=0.8",
-        );
+      // only animate if the user hasn't asked for reduced motion
+      mm.add("(prefers-reduced-motion: no-preference)", () => {
+        // 1. Hero intro
+        const tl = gsap.timeline({
+          defaults: { ease: "power3.out", duration: 1 },
+        });
 
-      gsap.utils.toArray(".scroll-fade").forEach((el) => {
-        gsap.from(el, {
-          y: 50,
-          opacity: 0,
-          duration: 0.8,
-          ease: "power2.out",
-          scrollTrigger: {
-            trigger: el,
-            start: "top 85%",
-            toggleActions: "play none none reverse",
-          },
+        tl.from(".hero-badge", { y: -20, opacity: 0 })
+          .from(".hero-title", { y: 40, opacity: 0 }, "-=0.4")
+          .from(".hero-desc", { y: 30, opacity: 0 }, "-=0.6")
+          .from(".hero-buttons", { y: 20, opacity: 0 }, "-=0.6")
+          .from(
+            ".hero-img",
+            { scale: 0.7, opacity: 0, rotate: -10, duration: 1.2 },
+            "-=0.8",
+          );
+
+        // 2. Scroll reveal for sections (About, Skills, Education, Contact)
+        gsap.utils.toArray(".scroll-fade").forEach((el) => {
+          gsap.from(el, {
+            y: 50,
+            opacity: 0,
+            duration: 0.8,
+            ease: "power2.out",
+            scrollTrigger: {
+              trigger: el,
+              start: "top 85%",
+              toggleActions: "play none none reverse",
+            },
+          });
+        });
+
+        // 3. Staggered reveal for project cards
+        gsap.set(".project-item", { y: 50, opacity: 0 });
+
+        ScrollTrigger.batch(".project-item", {
+          start: "top 85%",
+          once: true,
+          onEnter: (batch) =>
+            gsap.to(batch, {
+              y: 0,
+              opacity: 1,
+              duration: 0.8,
+              ease: "power2.out",
+              stagger: 0.15,
+              overwrite: true,
+            }),
         });
       });
     },
@@ -151,7 +102,8 @@ function App() {
         <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-10 items-center">
           <div>
             <div className="hero-badge inline-flex items-center px-6 py-2 rounded-full bg-purple-500/20 border border-purple-500">
-              Open To Work <div className="ml-2 h-2 w-2 rounded-full bg-purple-600 animate-pulse inline-block" />
+              Open To Work{" "}
+              <div className="ml-2 h-2 w-2 rounded-full bg-purple-600 animate-pulse inline-block" />
             </div>
 
             <h1 className="hero-title text-5xl md:text-7xl mt-6 mb-6">
@@ -163,7 +115,7 @@ function App() {
               Design, dan teknologi modern.
             </p>
 
-            <div className="hero-buttons flex gap-4">
+            <div className="hero-buttons flex gap-4 ">
               <a
                 href="#contact"
                 className="border border-purple-500 bg-purple-500 px-6 py-3 rounded-xl hover:scale-105 transition"
@@ -188,8 +140,9 @@ function App() {
       </section>
       <About />
       <Skills />
+      <Projects />
       <Education />
-      <Contact/>
+      <Contact />
       <Bawahan />
     </div>
   );
