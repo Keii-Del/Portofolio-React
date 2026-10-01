@@ -2,8 +2,6 @@ import { useState } from "react";
 
 const SECTION_ID = "contact";
 const MAX_MESSAGE_LENGTH = 500;
-const IS_FORM_ACTIVE = true;
-const EMPTY_STATE = null;
 
 export default function Contact() {
 
@@ -19,7 +17,6 @@ export default function Contact() {
 
     const messageLenght = formJson.message.length;
     const isLongMessage = messageLenght > 100;
-    console.log("Pesan Panjang? (boolean): ", isLongMessage);
 
     setSubmitted({ ...formJson, sentAt: new Date().toLocaleString() });
   };
